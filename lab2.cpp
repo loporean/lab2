@@ -17,7 +17,7 @@ using namespace std;
 #include <X11/keysym.h>
 #include <GL/glx.h>
 
-const int MAX_PARTICLES = 20;
+const int MAX_PARTICLES = 2000;
 
 //some structures
 class Global {
