@@ -17,7 +17,7 @@ using namespace std;
 #include <X11/keysym.h>
 #include <GL/glx.h>
 
-const int MAX_PARTICLES = 2000;
+const int MAX_PARTICLES = 1000;
 
 //some structures
 class Global {
@@ -322,10 +322,10 @@ void render()
 	glColor3ub(150, 200, 120);
 	glTranslatef(box.pos[0], box.pos[1], 0.0f);
 	glBegin(GL_QUADS);
-		glVertex2f(-box.w, -box.w);
-		glVertex2f(-box.w,  box.w);
-		glVertex2f( box.w,  box.w);
-		glVertex2f( box.w, -box.w);
+		glVertex2f(-box.w*3, -box.w*0.66);
+		glVertex2f(-box.w*3,  box.w*0.66);
+		glVertex2f( box.w*3,  box.w*0.66);
+		glVertex2f( box.w*3, -box.w*0.66);
 	glEnd();
 	glPopMatrix();
 	//Draw particle - INITIAL PARTICLE
