@@ -225,9 +225,9 @@ void X11_wrapper::check_mouse(XEvent *e)
 	if (e->type == ButtonPress) {
 		if (e->xbutton.button==1) {
 			//Left button was pressed.
-			int y = g.yres - e->xbutton.y;
+			 int y = g.yres - e->xbutton.y;
 			int x = e->xbutton.x;
-			make_particle(x, y);
+			make_particle(x, y); 
 			return;
 		}
 		if (e->xbutton.button==3) {
@@ -302,12 +302,12 @@ void physics()
         if (particles[i].pos[1] < (box.pos[1] + box.w) &&
             particles[i].pos[1] > (box.pos[1] - box.w) &&
             particles[i].pos[0] > (box.pos[0] - box.w) &&
-            particles[i].pos[0] < (box.pos[0] + box.w))         {
+            particles[i].pos[0] < (box.pos[0] + box.w)) {
             particles[i].vel[1] = 0.0;
             particles[i].vel[0] += 0.01;
         }
 		if (particles[i].pos[1] < 0.0) {
-			particles[i] = particles[n];	
+			particles[i] = particles[n-1];	
 	    		--n;
 		}
 
@@ -328,8 +328,8 @@ void render()
 		glVertex2f( box.w, -box.w);
 	glEnd();
 	glPopMatrix();
-	//Draw particle
-	glPushMatrix();
+	//Draw particle - INITIAL PARTICLE
+	/* glPushMatrix();
         glColor3ub(150, 160, 255);
         glTranslatef(particle.pos[0], particle.pos[1], 0.0f);
         glBegin(GL_QUADS);
@@ -338,7 +338,7 @@ void render()
                 glVertex2f( particle.w,  particle.w);
                 glVertex2f( particle.w, -particle.w);
         glEnd();
-        glPopMatrix();
+        glPopMatrix(); */
 	//Draw all particles
 	for (int i =0; i < n; i++) {
 	glPushMatrix();
@@ -352,6 +352,7 @@ void render()
         glEnd();
         glPopMatrix();
 	}
+	make_particle(box.pos[0], box.pos[1]+box.w*2);
 
 
 //	pos[0] += dir;
