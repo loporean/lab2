@@ -285,10 +285,10 @@ void physics()
        	particle.pos[1] += particle.vel[1]; // y-direction
 	//
 	//check for collision
-	if (particle.pos[1] < (box.pos[1] + box.w) && 
-       	    particle.pos[1] > (box.pos[1] - box.w) &&
-    	    particle.pos[0] > (box.pos[0] - box.w) &&
-	    particle.pos[0] < (box.pos[0] + box.w))	    {
+	if (particle.pos[1] < (box.pos[1] + box.w*0.66) && 
+       	    particle.pos[1] > (box.pos[1] - box.w*0.66) &&
+    	    particle.pos[0] > (box.pos[0] - box.w*3) &&
+	    particle.pos[0] < (box.pos[0] + box.w*3))	    {
 	    particle.vel[1] = 0.0;
 	    particle.vel[0] += 0.01;
 	}
@@ -299,10 +299,10 @@ void physics()
         particles[i].pos[1] += particles[i].vel[1]; // y-direction
         //
         //check for collision
-        if (particles[i].pos[1] < (box.pos[1] + box.w) &&
-            particles[i].pos[1] > (box.pos[1] - box.w) &&
-            particles[i].pos[0] > (box.pos[0] - box.w) &&
-            particles[i].pos[0] < (box.pos[0] + box.w)) {
+        if (particles[i].pos[1] < (box.pos[1] + box.w*0.66) &&
+            particles[i].pos[1] > (box.pos[1] - box.w*0.66) &&
+            particles[i].pos[0] > (box.pos[0] - box.w*3) &&
+            particles[i].pos[0] < (box.pos[0] + box.w*3)) {
             particles[i].vel[1] = 0.0;
             particles[i].vel[0] += 0.01;
         }
